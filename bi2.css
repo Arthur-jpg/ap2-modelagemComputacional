@@ -5,8 +5,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    flex-direction: column; /* Adicionado para permitir flexbox vertical */
 }
 
 .container {
@@ -78,4 +79,39 @@ table th, table td {
     margin-top: 10px;
     font-size: 1.2rem;
     color: #00e5ff;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px; 
+        justify-content: flex-start; 
+    }
+
+    .container {
+        width: 90%; 
+        padding: 15px; 
+
+    }
+
+    h1 {
+        font-size: 1.5rem; 
+    }
+
+    .input-section {
+        flex-direction: column; 
+        gap: 0.5rem;
+    }
+
+    .input-section input {
+        width: 60px; 
+    }
+
+    button {
+        width: 100%;
+    }
+
+    table th, table td {
+        padding: 6px;
+    }
 }
