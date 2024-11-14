@@ -65,7 +65,75 @@ function mostrarResultado(iteracoes, raiz) {
     document.getElementById('raiz-resultado').textContent = raiz !== undefined 
         ? `A raiz aproximada é: ${raiz.toFixed(8)}` 
         : "A raiz não foi encontrada dentro do número máximo de iterações.";
+
+    // Plotar o gráfico
+    const ctx = document.getElementById('grafico').getContext('2d');
+    const pontosX = [];
+    const pontosY = [];
+
+    // Gera pontos para o gráfico na faixa de [a, b]
+    const a = parseFloat(document.getElementById('a').value);
+    const b = parseFloat(document.getElementById('b').value);
+    const nPontos = 100; // Número de pontos no gráfico
+    const intervalo = (b - a) / nPontos;
+
+    for (let x = a; x <= b; x += intervalo) {
+        pontosX.push(x);
+        pontosY.push(f(x));
+    }
+
+    // Desenha o gráfico usando Chart.js
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: pontosX,
+            datasets: [{
+                label: 'f(x)',
+                data: pontosY,
+                borderColor: 'blue',
+                borderWidth: 2,
+                fill: false
+            }, {
+                label: 'Raiz aproximada',
+                data: [{ x: raiz, y: f(raiz) }],
+                pointBackgroundColor: 'red',
+                pointRadius: 5,
+                showLine: false
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: 'Eixo das Abscissas (x)',
+                        font: { size: 14 }
+                    },
+                    grid: {
+                        display: true,
+                        drawBorder: true,
+                        drawOnChartArea: false
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Eixo das Ordenadas (f(x))',
+                        font: { size: 14 }
+                    },
+                    grid: {
+                        display: true,
+                        drawBorder: true,
+                        drawOnChartArea: false
+                    }
+                }
+            }
+        }
+    });
 }
+
 
 function limpar() {
     const tabela = document.getElementById('result-table').querySelector('tbody');
