@@ -1,4 +1,4 @@
-body {
+/* body {
     background: linear-gradient(130deg, #1d1f21, #3a3d41);
     color: #d1f4ff;
     font-family: 'Roboto', sans-serif;
@@ -52,4 +52,115 @@ button {
 a {
     text-decoration: none;
     color: #d1f4ff;
+} */
+
+
+
+body {
+    background: linear-gradient(130deg, #1d1f21, #3a3d41);
+    color: #d1f4ff;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 1000px;
+    background: rgba(45, 47, 51, 0.85);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+button {
+    padding: 8px 16px;
+    background: #00e5ff;
+    border: none;
+    border-radius: 4px;
+    color: #1d1f21;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#bissecao {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    background-color: #3b3f43;
+    padding: 20px 20px;
+    border-radius: 4px;
+}
+
+#bissecao>div {
+    background-color: #4e5359;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+a {
+    text-decoration: none;
+    color: #d1f4ff;
+}
+
+
+
+@media (max-width: 1024px) {
+    #container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    #bissecao {
+        flex-direction: column; 
+        gap: 20px;
+    }
+
+    #bissecao > div {
+        padding: 10px;
+    }
+
+    button {
+        padding: 10px 20px; 
+    }
+}
+
+@media (max-width: 768px) {
+ 
+    body {
+        padding: 10px; 
+        height: auto; 
+    }
+
+    #container {
+        width: 100%;
+        padding: 10px;
+        gap: 20px; 
+    }
+
+    button {
+        width: 100%; 
+        padding: 12px 0; 
+    }
+
+    #bissecao {
+        flex-direction: column; 
+        gap: 15px;
+    }
+
+    #bissecao > div {
+        width: 100%; 
+        padding: 8px 16px;
+    }
 }
