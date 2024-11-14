@@ -48,3 +48,8 @@ button {
     padding: 10px 20px;
     border-radius: 4px;
 }
+
+a {
+    text-decoration: none;
+    color: #d1f4ff;
+}
